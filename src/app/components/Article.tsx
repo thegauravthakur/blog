@@ -6,11 +6,12 @@ export function Article() {
 		<article
 			className={cn(
 				'article rounded outline-blue-500 transition-all hover:outline hover:outline-2 hover:outline-offset-4',
-				'focus-within:outline focus-within:outline-2 focus-within:outline-offset-4',
+				' focus-within:outline focus-within:outline-2 focus-within:outline-offset-4',
+				'border border-dark focus-within:border-transparent hover:border-transparent',
 			)}
 		>
 			<Link
-				className={cn('block space-y-5 bg-gray-800 p-8 outline-none')}
+				className={cn('block space-y-5 bg-dark p-8 outline-none')}
 				href="/who-is-gaurav-thakur"
 			>
 				<h2 className={cn('font-semibold')}>

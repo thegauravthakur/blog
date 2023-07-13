@@ -5,10 +5,10 @@ import Link from 'next/link'
 
 export function Header() {
 	return (
-		<header className={cn('bg-gray-800')}>
+		<header className={cn('bg-black')}>
 			<div
 				className={cn(
-					'mx-auto flex max-w-screen-xl items-center justify-between px-4 py-2 text-white lg:px-8',
+					'mx-auto flex max-w-screen-xl items-center justify-between border-b border-dark px-4 py-2 text-white lg:px-8',
 				)}
 			>
 				<Link className={cn('font-bold')} href="/">
