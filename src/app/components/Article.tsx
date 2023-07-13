@@ -2,8 +2,13 @@ import { cn } from '@/utils/tailwind'
 
 export function Article() {
 	return (
-		<article className={cn('article')}>
-			<a className={cn('block space-y-5 rounded bg-gray-800 p-8')} href="#">
+		<article
+			className={cn(
+				'article rounded outline-blue-500 transition-all hover:outline hover:outline-2 hover:outline-offset-4',
+				'focus-within:outline focus-within:outline-2 focus-within:outline-offset-4',
+			)}
+		>
+			<a className={cn('block space-y-5 bg-gray-800 p-8 outline-none')} href="#">
 				<h2 className={cn('font-semibold')}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</h2>

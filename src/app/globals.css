@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.article:hover h2, .article:focus-within h2 {
-    @apply text-blue-600 transition-colors duration-300;
+@layer utilities {
+    .article:hover h2, .article:focus-within h2 {
+        @apply text-blue-500 transition-colors duration-300;
+    }
 }
