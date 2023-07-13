@@ -8,7 +8,7 @@ interface TooltipProps {
 
 export function Tooltip({ message, children }: TooltipProps) {
 	return (
-		<div className={cn('group relative flex')}>
+		<div className={cn('group relative flex')} role="tooltip">
 			{children}
 			<span
 				className={cn(
