@@ -17,7 +17,7 @@ export function Article() {
 				<h2 className={cn('font-semibold')}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</h2>
-				<p className={cn('text-sm')}>
+				<p className={cn('text-sm leading-7')}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consectetur
 					dolorem ducimus omnis. Commodi dolore eaque est iste nihil, odio quae
 					repudiandae
