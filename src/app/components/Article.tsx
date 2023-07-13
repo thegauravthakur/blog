@@ -1,4 +1,5 @@
 import { cn } from '@/utils/tailwind'
+import Link from 'next/link'
 
 export function Article() {
 	return (
@@ -8,7 +9,10 @@ export function Article() {
 				'focus-within:outline focus-within:outline-2 focus-within:outline-offset-4',
 			)}
 		>
-			<a className={cn('block space-y-5 bg-gray-800 p-8 outline-none')} href="#">
+			<Link
+				className={cn('block space-y-5 bg-gray-800 p-8 outline-none')}
+				href="/who-is-gaurav-thakur"
+			>
 				<h2 className={cn('font-semibold')}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</h2>
@@ -21,7 +25,7 @@ export function Article() {
 					<p>May 29th, 2023</p>
 					<p>13 comments</p>
 				</div>
-			</a>
+			</Link>
 		</article>
 	)
 }
