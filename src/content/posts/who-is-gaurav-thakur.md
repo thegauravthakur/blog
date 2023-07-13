@@ -13,8 +13,7 @@ metaDescription:
 tags: My Journey
 ---
 
-[//]: # (![Who is Gaurav Thakur]&#40;/images/who-is-gaurav-thakur.png&#41;)
-<img height="600" width="100%" class="rounded-2xl h-[600px]" src="https://res.cloudinary.com/gauravthakur/image/upload/c_scale,h_600/v1689269208/blog/who-is-gaurav-thakur_ekbycr.webp" alt="A picture of beautiful night landscape with text 'how it all started?'">
+<img height="600" width="100%" src="https://res.cloudinary.com/gauravthakur/image/upload/c_scale,h_600/v1689269208/blog/who-is-gaurav-thakur_ekbycr.webp" alt="A picture of beautiful night landscape with text 'how it all started?'">
 
 ## Introduction
 
