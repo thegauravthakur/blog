@@ -10,15 +10,17 @@ export function Article({ metadata }: ArticleProps) {
 	return (
 		<article
 			className={cn(
-				'article rounded outline-blue-500 transition-all hover:outline hover:outline-2 hover:outline-offset-4',
+				'article rounded transition-all hover:outline hover:outline-2 hover:outline-offset-4',
 				' focus-within:outline focus-within:outline-2 focus-within:outline-offset-4',
-				'border border-dark focus-within:border-transparent hover:border-transparent',
+				'focus-within:border-transparent hover:border-transparent focus-within:dark:border-transparent dark:hover:border-transparent',
+				'border outline-red-600 dark:border-dark dark:outline-blue-500',
 			)}
 		>
 			<Link
 				className={cn(
-					'h-full space-y-5 bg-dark p-8 outline-none',
+					'h-full space-y-5 p-8 outline-none',
 					'flex flex-col justify-between',
+					'dark:bg-dark',
 				)}
 				href={`/${metadata.slug}`}
 			>

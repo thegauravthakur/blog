@@ -17,10 +17,10 @@ export default function Page({ params }: any) {
 		<div className={cn('mx-auto w-full max-w-4xl space-y-20')}>
 			<main
 				className={cn(
-					'prose prose-invert mt-20',
+					'prose mt-20 dark:prose-invert',
 					'max-w-none prose-img:rounded-lg',
 					'px-5 py-20 md:px-10',
-					'rounded-xl border border-dark',
+					'rounded-xl border dark:border-dark',
 				)}
 			>
 				<h1 className={cn('text-center')}>{data.title}</h1>
@@ -29,7 +29,8 @@ export default function Page({ params }: any) {
 			</main>
 			<div
 				className={cn(
-					'space-y-10 rounded-xl border border-dark px-5 py-10 text-white md:px-10',
+					'space-y-10 rounded-xl px-5 py-10  md:px-10',
+					'border dark:border-dark dark:text-white',
 				)}
 			>
 				<h3 className={cn('text-xl font-semibold')}>Read More</h3>

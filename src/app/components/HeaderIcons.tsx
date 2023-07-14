@@ -13,7 +13,13 @@ export function HeaderIcons() {
 		<>
 			<li>
 				<Tooltip message="Search">
-					<IconButton aria-label="search" type="button" onClick={() => {}}>
+					<IconButton
+						aria-label="search"
+						type="button"
+						onClick={event => {
+							event.currentTarget.blur()
+						}}
+					>
 						<Icon className={cn('h-6 w-6')} id="search-icon" />
 					</IconButton>
 				</Tooltip>
@@ -23,7 +29,8 @@ export function HeaderIcons() {
 					<IconButton
 						aria-label="change to light mode"
 						type="button"
-						onClick={() => {
+						onClick={event => {
+							event.currentTarget.blur()
 							if (document.documentElement.dataset.mode === 'dark') {
 								document.documentElement.dataset.mode = 'light'
 								document.cookie = 'theme=light; ; path=/'

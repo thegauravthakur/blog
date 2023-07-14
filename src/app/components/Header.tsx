@@ -12,18 +12,44 @@ export function Header() {
 					'border-b dark:border-dark dark:text-white',
 				)}
 			>
-				<Link className={cn('font-bold')} href="/">
+				<Link
+					className={cn(
+						'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
+					)}
+					href="/"
+				>
 					Gaurav&apos;s Blog
 				</Link>
 				<ul className={cn('hidden items-center space-x-8 text-sm font-semibold sm:flex')}>
 					<li>
-						<a href="#">Home</a>
+						<a
+							className={cn(
+								'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
+							)}
+							href="#"
+						>
+							Home
+						</a>
 					</li>
 					<li>
-						<a href="#">About</a>
+						<a
+							className={cn(
+								'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
+							)}
+							href="#"
+						>
+							About
+						</a>
 					</li>
 					<li>
-						<a href="#">Thoughts</a>
+						<a
+							className={cn(
+								'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
+							)}
+							href="#"
+						>
+							Thoughts
+						</a>
 					</li>
 				</ul>
 				<ul className={cn('flex space-x-2')}>

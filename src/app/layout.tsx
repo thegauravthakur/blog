@@ -25,11 +25,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				{children}
 				<footer
 					className={cn(
-						'mx-auto max-w-screen-xl border-t border-dark bg-black text-center text-white ',
+						'mx-auto max-w-screen-xl border-t text-center',
 						'mt-10 space-y-5 py-5',
+						'dark:border-dark dark:bg-black dark:text-white',
 					)}
 				>
-					<div className={cn('flex items-center justify-center text-white')}>
+					<div className={cn('flex items-center justify-center')}>
 						<IconButton>
 							<Icon className={cn('h-6 w-6')} id="twitter-icon" />
 						</IconButton>
