@@ -1,7 +1,12 @@
 import { cn } from '@/utils/tailwind'
 import Link from 'next/link'
+import { ArticleData } from '@/app/page'
 
-export function Article() {
+interface ArticleProps {
+	metadata: ArticleData
+}
+
+export function Article({ metadata }: ArticleProps) {
 	return (
 		<article
 			className={cn(
@@ -12,16 +17,10 @@ export function Article() {
 		>
 			<Link
 				className={cn('block space-y-5 bg-dark p-8 outline-none')}
-				href="/who-is-gaurav-thakur"
+				href={`/${metadata.slug}`}
 			>
-				<h2 className={cn('font-semibold')}>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				</h2>
-				<p className={cn('text-sm leading-7')}>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consectetur
-					dolorem ducimus omnis. Commodi dolore eaque est iste nihil, odio quae
-					repudiandae
-				</p>
+				<h2 className={cn('font-semibold')}>{metadata.title}</h2>
+				<p className={cn('text-sm leading-7')}>{metadata.description}</p>
 				<div className={cn('flex justify-between text-sm')}>
 					<p>May 29th, 2023</p>
 					<p>13 comments</p>
