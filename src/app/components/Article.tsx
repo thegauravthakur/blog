@@ -16,12 +16,17 @@ export function Article({ metadata }: ArticleProps) {
 			)}
 		>
 			<Link
-				className={cn('block space-y-5 bg-dark p-8 outline-none')}
+				className={cn(
+					'h-full space-y-5 bg-dark p-8 outline-none',
+					'flex flex-col justify-between',
+				)}
 				href={`/${metadata.slug}`}
 			>
-				<h2 className={cn('font-semibold')}>{metadata.title}</h2>
-				<p className={cn('text-sm leading-7')}>{metadata.description}</p>
-				<div className={cn('flex justify-between text-sm')}>
+				<div className={cn('space-y-5')}>
+					<h2 className={cn('font-semibold')}>{metadata.title}</h2>
+					<p className={cn('text-sm leading-7')}>{metadata.description}</p>
+				</div>
+				<div className={cn('mt-auto flex justify-between text-sm')}>
 					<p>May 29th, 2023</p>
 					<p>13 comments</p>
 				</div>

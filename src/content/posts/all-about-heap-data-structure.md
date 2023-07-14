@@ -1,0 +1,249 @@
+---
+title: All About Heap Data Structures
+publishedDate: 12/31/2021
+author: Gaurav Thakur
+tags: Data Structures
+description:
+  Heaps are a special type of complete binary tree which will always return the
+  min/max element. We can make more efficient heaps with the heapify algorithm.
+  Let's learn all about them in this article along with the code samples.
+metaDescription:
+  Heaps are a special type of complete binary tree which will always return the
+  min/max element. Let's learn all about them in this article along with the
+  code samples.
+---
+
+A heap is a special type of tree like data structure that will always provide
+the maximum or minimum value at the root depending on the type of heap. We will
+cover all about heap data structure in this article. Before going into the
+details of heap data structure, let us quickly go over the basic concepts of
+binary tree and its array representation.
+
+## Binary Tree
+
+A binary tree is a tree data structure in which each node has at most two child
+nodes.
+
+![binary tree + `{"width":3200,"height":1800}`](/images/binary-tree.png 'Binary Tree')
+
+### Array Representation of Binary Tree
+
+We can easily visualize the binary tree as an array. The array representation of
+a binary tree must follow the following rules:
+
+1. The root node must be at index 0.
+2. The left child of a node must be at index 2 \* i + 1.
+3. The right child of a node must be at index 2 \* i + 2.
+4. The parent of a node must be at index floor((i - 1) / 2).
+
+![Array Representation of binary tree + `{"width":3200,"height":1800}`](/images/array-representation-of-binary-tree.png 'Array Representation of Binary Tree')
+
+Even if a node is not present in the binary tree, it must follow the
+above-mentioned rules. For example, in case of below tree, the child of node B
+is not present. So, the array representation of the tree must be:
+
+![Array Representation of binary tree with holes + `{"width":3200,"height":1800}`](/images/binary-tree-with-holes.png 'Array Representation of Binary Tree with Holes')
+
+### Perfect Binary Tree
+
+A perfect binary tree is a binary tree with maximum number of nodes at each level.
+
+![perfect binary tree + `{"width":3200,"height":1800}`](/images/binary-tree.png 'Binary Tree')
+
+### Complete Binary Tree
+
+If you represent a binary tree as an array, then there shouldn’t be any empty
+gaps in between the first and last elements. Every perfect binary tree is also a
+complete binary tree. A complete binary tree is a full binary tree upto height =
+height - 1. Height of a complete binary tree will always be equal to log(n)
+
+![complete binary tree + `{"width":3200,"height":1800}`](/images/complete-binary-tree.png 'Complete Binary Tree')
+
+## Heaps
+
+A heap is a complete binary tree. There are two types of heaps:
+
+1. Max Heap
+2. Min Heap
+
+### Max Heap
+
+![Max Heaps + `{"width":3200,"height":1800}`](/images/max-heaps.png 'Max Heaps')
+
+A max heap is a complete binary tree in which every node is having a value
+greater than or equal to all its descendants.
+
+### Min Heap
+
+![Min Heaps + `{"width":3200,"height":1800}`](/images/min-heap.png 'Min Heaps')
+
+Min heap is a complete binary tree in which every node is having a value less
+than or equal to all its descendants.
+
+### Insertion in Heap
+
+To insert a new element in a heap, we need to add it as the last element in the
+array and move it upwards until it satisfies the heap property. The main thing
+to notice is that the adjustment is done from the last element to the root. Here
+is the code to insert a new element in a heap, we are considering it to be a max
+heap.
+
+```cpp
+void Heap::insert(int value) {
+    // a complete binary tree with one node is always a binary tree
+    if (size == 0)
+        heap[size++] = value;
+    else {
+        // add element to the leaf
+        heap[size++] = value;
+        // get the index of last item
+        int index = size - 1;
+        // get the parent index
+        int parent = (int) index / 2;
+        // push the value upwards till it satisfies heap property
+        while (index > 0 && heap[parent] < heap[index]) {
+            swap(heap[parent], heap[index]);
+            index = parent;
+            parent = (int) index / 2;
+        }
+    }
+}
+
+// time complexity: O(log n)
+```
+
+### Deletion in Heap
+
+We can't delete any random element from the heap. We can only delete the root
+node. After deleting the root node, we need to move the last element in the heap
+to the root and then move it downwards until it satisfies the heap property. The
+main thing to notice is that the adjustment is done from root towards the leaf.
+Here is the code to delete root in a heap, we are considering it to be a max
+heap.
+
+```cpp
+void Heap::heapify(int index) {
+    int leftChildIndex = index * 1 + 1;
+    int rightChildIndex = index * 1 + 2;
+    int maxChildIndex = index;
+
+    if (leftChildIndex < size && heap[leftChildIndex] > heap[maxChildIndex]) {
+        maxChildIndex = leftChildIndex;
+    }
+
+    if (rightChildIndex < size && heap[rightChildIndex] > heap[maxChildIndex]) {
+        maxChildIndex = rightChildIndex;
+    }
+
+    if (maxChildIndex != index) {
+        swap(heap[maxChildIndex], heap[index]);
+        heapify(maxChildIndex);
+    }
+}
+
+int Heap::pop() {
+    if (size > 0) {
+        int poppedElement = heap[0];
+        heap[0] = heap[size - 1];
+        size--;
+        heapify(0);
+        return poppedElement;
+    }
+    return -1;
+}
+
+// time complexity: O(log n)
+```
+
+In max heap, whenever we delete an element, we get the largest element. We can
+keep the deleted elements in the free space in the array. So, after deleting all
+the elements, we will get the sorted array. This is the idea behind the heap
+sort.
+
+In heap sort, we first construct a min/max heap and then extract the root node
+until the heap is empty. The overall time complexity of heap sort is Creation of
+heap O(n log n) + Deletion of all elements O(n log n) which is just O(n log n).
+We can also construct a min/max heap using the heapify algorithm which will only
+take O(n) time if the array is readily available. This algorithm is mentioned
+below.
+
+### Heapify
+
+In traditional approach, we add elements to the leaf and adjust it upwards but
+in heapify the direction is opposite i.e. we adjust the element downwards. Here
+is the code to heapify a single node.
+
+```cpp
+void Heap::heapify(int index) {
+    int leftChildIndex = index * 1 + 1;
+    int rightChildIndex = index * 1 + 2;
+    int maxChildIndex = index;
+
+    if (leftChildIndex < size && heap[leftChildIndex] > heap[maxChildIndex]) {
+        maxChildIndex = leftChildIndex;
+    }
+
+    if (rightChildIndex < size && heap[rightChildIndex] > heap[maxChildIndex]) {
+        maxChildIndex = rightChildIndex;
+    }
+
+    if (maxChildIndex != index) {
+        swap(heap[maxChildIndex], heap[index]);
+        heapify(maxChildIndex);
+    }
+}
+```
+
+We can also use heapify algorithm to create a new heap. We start from the leaf
+node and maintain the heap property by sending the elements downwards.
+
+```cpp
+void Heap::constructHeap(const vector<int> &values) {
+    if (size == 0) {
+        for (int value: values) {
+            heap[size++] = value;
+        }
+        for (int i = size - 1; i >= 0; i--) {
+            heapify(i);
+        }
+    }
+}
+```
+
+Heapify algorithm is able to create a heap in O(n) time whereas traditional
+approach takes O(n log n) time for n elements. We should always use heapify if
+the array is readily available.
+
+### Priority Queue
+
+A priority queue is a special kind of data structure which will always pop the
+value with the highest priority. We can easily achieve this using a max/max
+heap. We can also create a priority queue by storing the elements in a normal
+array but this will not be efficient as the pop method will take O(n) time.
+
+To make efficient priority queue, we can use a min/max heap. This will return
+the highest priority element in just O(log n) time but this will also take O(log
+n) time for each push whereas this will take constant time in case of normal
+array. So we should always choose the method which is more efficient for our use
+case.
+
+### Quick Recap
+
+1. A heap is a complete binary tree with a maximum height of log n.
+2. A heap can be a max heap or a min heap.
+3. A max heap is a heap in which every node is greater than or equal to its
+   descendants.
+4. A min heap is a heap in which every node is less than or equal to its
+   descendants.
+5. We can insert a new element in the heap by adding it to the end of the array
+   and then moving it upwards until it satisfies the heap property.
+6. We can't delete any random element from the heap except the root node.
+7. We can delete the root node by replacing it with the last element and then
+   moving it downwards until it satisfies the heap property.
+8. Time complexity of insertion and deletion in heap is O(log n).
+9. In heap sort, we first construct a min/max heap and then extract the root
+   node until the heap is empty. This will give us the sorted array in O(n log)
+   time.
+10. We can also construct a min/max heap using the heapify algorithm which will
+    only take O(n) time if the array is readily available.
+11. Heaps are used to implement efficient priority queues.

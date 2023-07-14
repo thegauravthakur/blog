@@ -26,7 +26,6 @@ export function getAllArticles(): ArticleData[] {
 
 export default function Home() {
 	const articles = getAllArticles()
-	console.log(articles)
 	return (
 		<div
 			className={cn(
