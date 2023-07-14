@@ -20,7 +20,19 @@ export function HeaderIcons() {
 			</li>
 			<li>
 				<Tooltip message="Light mode">
-					<IconButton aria-label="change to light mode" type="button" onClick={() => {}}>
+					<IconButton
+						aria-label="change to light mode"
+						type="button"
+						onClick={() => {
+							if (document.documentElement.dataset.mode === 'dark') {
+								document.documentElement.dataset.mode = 'light'
+								document.cookie = 'theme=light; ; path=/'
+							} else {
+								document.documentElement.dataset.mode = 'dark'
+								document.cookie = 'theme=dark; ; path=/'
+							}
+						}}
+					>
 						<Icon className={cn('h-6 w-6')} id="light-theme-icon" />
 					</IconButton>
 				</Tooltip>

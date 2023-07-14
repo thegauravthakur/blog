@@ -12,8 +12,9 @@ export function Tooltip({ message, children }: TooltipProps) {
 			{children}
 			<span
 				className={cn(
-					'absolute right-0 top-[49px] min-w-max scale-0 rounded border border-dark bg-black p-2',
-					'text-xs text-white transition-all group-focus-within:scale-100 group-hover:scale-100',
+					'absolute right-0 top-[49px] min-w-max scale-0 rounded p-2',
+					'text-xs transition-all group-focus-within:scale-100 group-hover:scale-100',
+					'border dark:border-dark dark:bg-black dark:text-white',
 				)}
 			>
 				{message}

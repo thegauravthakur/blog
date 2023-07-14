@@ -5,6 +5,8 @@ import { Header } from '@/app/components/Header'
 import { cn } from '@/utils/tailwind'
 import { Icon } from '@/components/shared/Icon'
 import { IconButton } from '@/components/shared/IconButton'
+import { getCookie } from 'cookies-next'
+import { cookies } from 'next/headers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +15,12 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+	const cookieStore = cookies()
+	const currentTheme = cookieStore.get('theme')
+
 	return (
-		<html lang="en">
-			<body className={cn(inter.className, 'bg-black')}>
+		<html data-mode={currentTheme?.value} lang="en">
+			<body className={cn(inter.className, 'dark:bg-black')}>
 				<Header />
 				{children}
 				<footer
