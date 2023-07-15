@@ -1,6 +1,7 @@
 import { cn } from '@/utils/tailwind'
 import { HeaderIcons } from '@/app/components/HeaderIcons'
 import Link from 'next/link'
+import { HeaderNavItems } from '@/app/components/HeaderNavItems'
 
 export function Header() {
 	return (
@@ -19,41 +20,8 @@ export function Header() {
 				>
 					Gaurav&apos;s Blog
 				</Link>
-				<ul className={cn('hidden items-center space-x-8 text-sm font-semibold sm:flex')}>
-					<li>
-						<a
-							className={cn(
-								'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
-							)}
-							href="#"
-						>
-							Home
-						</a>
-					</li>
-					<li>
-						<a
-							className={cn(
-								'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
-							)}
-							href="#"
-						>
-							About
-						</a>
-					</li>
-					<li>
-						<a
-							className={cn(
-								'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
-							)}
-							href="#"
-						>
-							Thoughts
-						</a>
-					</li>
-				</ul>
-				<ul className={cn('flex space-x-2')}>
-					<HeaderIcons />
-				</ul>
+				<HeaderNavItems />
+				<HeaderIcons />
 			</div>
 		</header>
 	)

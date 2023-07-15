@@ -7,7 +7,7 @@ import { SearchIcon } from '@/app/components/SearchIcon'
 export function HeaderIcons() {
 	const currentTheme = cookies().get('theme')?.value ?? 'light'
 	return (
-		<>
+		<ul className={cn('flex space-x-2')}>
 			<li>
 				<SearchIcon />
 			</li>
@@ -17,6 +17,6 @@ export function HeaderIcons() {
 			<li className={cn('md:hidden')}>
 				<MobileHeaderTriggerIcon />
 			</li>
-		</>
+		</ul>
 	)
 }
