@@ -16,9 +16,9 @@ metaDescription:
 
 ## Introduction
 
-All JavaScript engine have their own implementation of the functions and methods
+All JavaScript engines have their own implementation of the functions and methods, 
 but in this article, we'll consider the implementation of
-[Google's V8 engine](https://v8.dev/) which is one of the most famous JavaScript
+[Google's V8 engine,](https://v8.dev/) which is one of the most famous JavaScript
 engines.
 
 ## Objects in JavaScript
@@ -40,8 +40,8 @@ console.log(foo['1200']); // bar
 ```
 
 Here, key `12e4` is first coerced to string and becomes `1200` then `bar` value
-is linked to it. Same thing happens while accessing the value also. `12e2` will
-first be coerced to string and then foo will lookup for key `1200` and return
+is linked to it. The Same thing happens while accessing the value also. `12e2` will
+first be coerced to string, and then foo will look up for key `1200` and return
 `bar` value. But in the case of string literal `12e2`, no coercion occurs as a
 result it was not able to find any value with such key and therefore returns
 `undefined`.
@@ -50,17 +50,17 @@ result it was not able to find any value with such key and therefore returns
 
 Arrays are also a type of object in JavaScript but with only numeric keys.
 JavaScript engine can optimize these special objects with purely numeric keys
-Google's V8 javascript engine is entirely written in C++ but C++ arrays can only
+Google's V8 javascript engine is entirely written in C++, but C++ arrays can only
 store a similar type of data.
 
 ### Element Kind in JavaScript
 
 There is no concept of `int`, `float` and `double` in JavaScript. JavaScript
 categorizes them as `number` type but the underneath implementation cares a lot
-about type of elements being stored in the array. V8 engine tries its best to
+about type of elements being stored in the array. The V8 engine tries its best to
 optimize the array. The operations that are performant for `int` data type can't
 be as much performed for string or double data type. To keep the track of stored
-elements in a array and apply specific optimizations, V8 assigns a
+elements in an array and apply specific optimizations, V8 assigns a
 `element kind` to each array. V8 uses these `element kind` just to internally
 distinguish between the different type of arrays
 
@@ -89,8 +89,8 @@ const foo = [1, 2, 3];
 
 ### Holey Elements
 
-Holey elements means that there are gaps in the array. It represents the sparse
-array. These type of array will not be as performant as the packed array.
+Holey elements mean that there are gaps in the array. It represents the sparse
+array. These types of array will not be as performant as the packed array.
 
 ```javascript
 const foo = [1, 2, 3];
@@ -159,17 +159,17 @@ At the end, adding `bar` to the array makes the `element kind` move to
 
 Here is the diagram of the `element kind` transitions for better understanding.
 
-![Element Kind Transition + `{"width":3200,"height":1800}`](/images/element-kind-transition-v8.png 'Element Kind Transition')
+<img alt="Element Kind transition in V8" height="600" width="100%" src="https://res.cloudinary.com/gauravthakur/image/upload/s--d6Lt_GXH--/c_scale,h_600/v1689436585/blog/element-kind-transition-v8_tysqsn.webp">
 
 JavaScript internally uses C++ vectors to store the packed arrays. It will grow
 dynamically. Once the holes are introduced, the underneath implementation will
-be upgraded to the `hashmap`. Once the underneath implementation is upgraded it
+be upgraded to the `hashmap`. Once the underneath implementation is upgraded, it
 cannot be degraded even if you remove that element. So time and complexity can
 vary a lot by just your usage of the array.
 
 ## General Performance Tips
 
-### Never access the array with out of bounds index
+### Never access the array with out-of-bounds index
 
 ```javascript
 const foo = [1, 2, 3];
@@ -181,8 +181,8 @@ The above example is such a common practice followed by many JS developers, here
 we are accessing `100` index of the array.However, the length of array is `3` so
 the index is out of bounds. In this case, the V8 engine has to perform the
 expensive prototype chain lookup. This will affect the performance of V8 engine
-as V8 will be cautious about this situation and it will not remain as performant
-it was before accessing the out of bound key.
+as V8 will be cautious about this situation, and it will not remain as performant
+it was before accessing the out-of bound key.
 
 ### Avoid giving the initial capacity to the array
 
@@ -206,12 +206,12 @@ foo.push(2);
 foo.push(3); // element kind: PACKED_SMI_ELEMENTS
 ```
 
-Instead of giving the initial capacity to the array we can just create a empty
+Instead of giving the initial capacity to the array, we can just create an empty
 array and push the elements to it. This will ensure the `element kind` is the
 same
 
 ## Conclusion
 
-So this was the quick deep dive into how V8 engine internally handles arrays. At
-the end we also discuss some of the tips to make your array performant. If you
+So this was a quick deep dive into how the V8 engine internally handles arrays. 
+In the end, we also discuss some tips to make your array performant. If you
 like this article, please share it with your friends.

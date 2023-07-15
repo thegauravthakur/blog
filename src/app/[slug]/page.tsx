@@ -8,9 +8,15 @@ import { getAllArticles } from '@/app/page'
 import { format } from 'date-fns'
 import { calculateReadingTime } from '@/utils/article'
 
+function getRandomArticles(max: number) {
+	return getAllArticles()
+		.sort(() => Math.random() - Math.random())
+		.slice(0, max)
+}
 export default function Page({ params }: any) {
 	const slug = params.slug
-	const readMoreArticles = getAllArticles().slice(0, 2)
+	const readMoreArticles = getRandomArticles(2)
+
 	const filePath = path.join(process.cwd(), `src/content/posts/${slug}.md`)
 	const { content, data } = matter(fs.readFileSync(filePath, 'utf-8'))
 	const readingTime = calculateReadingTime(content)

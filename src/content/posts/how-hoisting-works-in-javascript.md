@@ -13,7 +13,7 @@ metaDescription:
 tags: JavaScript
 ---
 
-Hoisting is very important concept in JavaScript. In many books and articles on
+Hoisting is a very important concept in JavaScript. In many books and articles on
 hoisting, they mention that, in hoisting, the variable declarations and
 functions are copied to the top of the code. This is completely wrong. We will
 understand the actual working of hoisting and how we are able to access
@@ -34,7 +34,7 @@ function sayHello() {
 
 In the above example, we are able to access the variable `name` and the function
 `sayHello` before they are initialized. In most of the languages, this action
-will throw an error. But in JavaScript, things works a bit differently.
+will throw an error. But in JavaScript, things work a bit differently.
 
 I highly recommend you to read this article about the
 [working of execution context in JavaScript](/what-is-execution-context-in-javascript)
@@ -46,10 +46,10 @@ An execution context is created in two phases:
 1. Memory Creation Phase
 2. Code Execution Phase
 
-In memory creation phase, JavaScript will parse the code line by line and will
+In the memory creation phase, JavaScript will parse the code line by line and will
 allocate memory for each variable and function. For the variables, it will
-assign a special value called `undefined` as the value of the key. In case of
-functions, whole function will be copy-pasted in the value of the key.
+assign a special value called `undefined` as the value of the key. In the case of
+functions, the whole function will be copy-pasted in the value of the key.
 
 So, when JavaScript encounters a variable or function before it is initialized,
 it will check if the variable or function has been allocated in the memory. If
@@ -57,14 +57,14 @@ so it will return the value of the key which is `undefined` in case of variables
 and function code in case of functions.
 
 If a variable is not defined, and we try to access it, it will throw a
-`ReferenceError` because the memory is not allocated for the variable in the
+`ReferenceError` because the memory is not allocated for the variable in 
 phase 1 of the execution context.
 
 ```javascript
 console.log(name); // ReferenceError
 ```
 
-In many books and articles on Hoisting, they mention that the variables
+In many books and articles on Hoisting, they mention that the variable
 declarations and functions are copied to the top of the code. This is completely
 wrong. The way execution context is created, is only the sole reason why we are
 able to access the variables before initialization and why their initial value
@@ -74,8 +74,8 @@ is `undefined` and function code in case of functions.
 
 1. Hoisting in JavaScript is a phenomenon where we can access the variables and
    functions before they are initialized.
-2. Execution context will allocate memory for variables and functions in the
-   phase 1 of creation of execution context.
+2. Execution context will allocate memory for variables and functions in 
+   phase 1 of the creation of execution context.
 3. For the variables, it will assign a special value called `undefined` and for
    the functions, whole function will be copied.
 4. The way execution context is created, is only the sole reason why we are able

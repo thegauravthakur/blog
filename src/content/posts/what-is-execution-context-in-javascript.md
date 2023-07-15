@@ -46,7 +46,7 @@ function add(num1, num2) {
 var result = add(num1, num2);
 ```
 
-In the above code, we have declared two variables and one function. At first
+In the above code, we have declared two variables and one function. At first, 
 JavaScript will always create a global execution context. In the memory creation
 phase, it will allocate memory for `num1` and `num2` and will assign `undefined`
 as the default value. When JavaScript will reach to line number 3, it will copy
@@ -87,7 +87,7 @@ concept of stack to keep track of this information, and it is known as
 `call stack` in JavaScript.
 
 The call stack is a stack of execution contexts. Its main purpose is only to
-manage the execution context. Once, JavaScript will encounter a function
+manage the execution context. Once JavaScript will encounter a function
 invocation in the code execution phase, it will create a new execution context
 and will push it to the top of the call stack. After the function is executed,
 it will pop the execution context from the call stack.

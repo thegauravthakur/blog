@@ -17,14 +17,14 @@ A heap is a special type of tree like data structure that will always provide
 the maximum or minimum value at the root depending on the type of heap. We will
 cover all about heap data structure in this article. Before going into the
 details of heap data structure, let us quickly go over the basic concepts of
-binary tree and its array representation.
+a binary tree and its array representation.
 
 ## Binary Tree
 
 A binary tree is a tree data structure in which each node has at most two child
 nodes.
 
-![binary tree + `{"width":3200,"height":1800}`](/images/binary-tree.png 'Binary Tree')
+<img height="600" width="100%" alt="A binary tree" src="https://res.cloudinary.com/gauravthakur/image/upload/c_scale,h_600/v1689435125/blog/binary-tree_jfpgof.webp">
 
 ### Array Representation of Binary Tree
 
@@ -36,28 +36,28 @@ a binary tree must follow the following rules:
 3. The right child of a node must be at index 2 \* i + 2.
 4. The parent of a node must be at index floor((i - 1) / 2).
 
-![Array Representation of binary tree + `{"width":3200,"height":1800}`](/images/array-representation-of-binary-tree.png 'Array Representation of Binary Tree')
+<img height="600" width="100%" alt="Array representation of a binary tree" src="https://res.cloudinary.com/gauravthakur/image/upload/s--furFf44H--/c_scale,h_600/v1689435525/blog/array-representation-of-binary-tree_uxfjmq.webp">
 
 Even if a node is not present in the binary tree, it must follow the
-above-mentioned rules. For example, in case of below tree, the child of node B
+above-mentioned rules. For example, in case of below a tree, the child of node B
 is not present. So, the array representation of the tree must be:
 
-![Array Representation of binary tree with holes + `{"width":3200,"height":1800}`](/images/binary-tree-with-holes.png 'Array Representation of Binary Tree with Holes')
+<img height="600" width="100%" alt="Array representation of binary tree with holes" src="https://res.cloudinary.com/gauravthakur/image/upload/s--9CeGxL4b--/c_scale,h_600/v1689435652/blog/binary-tree-with-holes_zkjsg6.webp">
 
 ### Perfect Binary Tree
 
-A perfect binary tree is a binary tree with maximum number of nodes at each level.
+A perfect binary tree is a binary tree with the maximum number of nodes at each level.
 
-![perfect binary tree + `{"width":3200,"height":1800}`](/images/binary-tree.png 'Binary Tree')
+<img height="600" width="100%" alt="A binary tree" src="https://res.cloudinary.com/gauravthakur/image/upload/c_scale,h_600/v1689435125/blog/binary-tree_jfpgof.webp">
 
 ### Complete Binary Tree
 
 If you represent a binary tree as an array, then there shouldn’t be any empty
 gaps in between the first and last elements. Every perfect binary tree is also a
-complete binary tree. A complete binary tree is a full binary tree upto height =
+complete binary tree. A complete binary tree is a full binary tree up to height =
 height - 1. Height of a complete binary tree will always be equal to log(n)
 
-![complete binary tree + `{"width":3200,"height":1800}`](/images/complete-binary-tree.png 'Complete Binary Tree')
+<img alt="complete binary tree" src="https://res.cloudinary.com/gauravthakur/image/upload/s--zwPj2W1R--/c_scale,h_600/v1689435765/blog/complete-binary-tree_yb9vjr.webp">
 
 ## Heaps
 
@@ -68,14 +68,14 @@ A heap is a complete binary tree. There are two types of heaps:
 
 ### Max Heap
 
-![Max Heaps + `{"width":3200,"height":1800}`](/images/max-heaps.png 'Max Heaps')
+<img height="600" width="100%" alt="max heap" src="https://res.cloudinary.com/gauravthakur/image/upload/s--FJ30GmaL--/c_scale,h_600/v1689435847/blog/max-heaps_l8e64t.webp">
 
 A max heap is a complete binary tree in which every node is having a value
 greater than or equal to all its descendants.
 
 ### Min Heap
 
-![Min Heaps + `{"width":3200,"height":1800}`](/images/min-heap.png 'Min Heaps')
+<img alt="min heap" height="600" width="100%" src="https://res.cloudinary.com/gauravthakur/image/upload/s--NC74KCUq--/c_scale,h_600/v1689435919/blog/min-heap_ceckey.webp">
 
 Min heap is a complete binary tree in which every node is having a value less
 than or equal to all its descendants.
@@ -161,7 +161,7 @@ the elements, we will get the sorted array. This is the idea behind the heap
 sort.
 
 In heap sort, we first construct a min/max heap and then extract the root node
-until the heap is empty. The overall time complexity of heap sort is Creation of
+until the heap is empty. The overall time complexity of heap sort is the Creation of
 heap O(n log n) + Deletion of all elements O(n log n) which is just O(n log n).
 We can also construct a min/max heap using the heapify algorithm which will only
 take O(n) time if the array is readily available. This algorithm is mentioned
@@ -169,9 +169,9 @@ below.
 
 ### Heapify
 
-In traditional approach, we add elements to the leaf and adjust it upwards but
-in heapify the direction is opposite i.e. we adjust the element downwards. Here
-is the code to heapify a single node.
+In traditional approach, we add elements to the leaf and adjust it upwards, but
+in heapify the direction is opposite, i.e., we adjust the element downwards.
+Here is the code to heapify a single node.
 
 ```cpp
 void Heap::heapify(int index) {
@@ -210,20 +210,20 @@ void Heap::constructHeap(const vector<int> &values) {
 }
 ```
 
-Heapify algorithm is able to create a heap in O(n) time whereas traditional
+Heapify algorithm is able to create a heap in O(n) time, whereas traditional
 approach takes O(n log n) time for n elements. We should always use heapify if
 the array is readily available.
 
 ### Priority Queue
 
-A priority queue is a special kind of data structure which will always pop the
+A priority queue is a special kind of data structure that will always pop the
 value with the highest priority. We can easily achieve this using a max/max
 heap. We can also create a priority queue by storing the elements in a normal
-array but this will not be efficient as the pop method will take O(n) time.
+array, but this will not be efficient as the pop method will take O(n) time.
 
 To make efficient priority queue, we can use a min/max heap. This will return
-the highest priority element in just O(log n) time but this will also take O(log
-n) time for each push whereas this will take constant time in case of normal
+the highest priority element in just O(log n) time, but this will also take O(log
+n) time for each push, whereas this will take constant time in case of a normal
 array. So we should always choose the method which is more efficient for our use
 case.
 

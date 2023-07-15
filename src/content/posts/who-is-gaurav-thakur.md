@@ -13,50 +13,50 @@ metaDescription:
 tags: My Journey
 ---
 
-<img height="600" width="100%" src="https://res.cloudinary.com/gauravthakur/image/upload/c_scale,h_600/v1689269208/blog/who-is-gaurav-thakur_ekbycr.webp" alt="A picture of beautiful night landscape with text 'how it all started?'">
+<img height="600" width="100%" src="https://res.cloudinary.com/gauravthakur/image/upload/c_scale,h_600/v1689269208/blog/who-is-gaurav-thakur_ekbycr.webp" alt="A beautiful night landscape with text 'how it all started?'">
 
 ## Introduction
 
 Hi, my name is Gaurav Thakur. I live in a very beautiful valley of Kullu,
-Himachal Pradesh. Currently, I'm doing my BTech in Computer Science from Lovely
+Himachal Pradesh. Currently, I'm doing my BTech in Computer Science from the Lovely 
 Professional University. I'll be graduating in the year 2022. Along with that
-I'm working as Associate Software Engineer at MAQ Software
+I'm working as an Associate Software Engineer at MAQ Software
 
 ## Early Childhood
 
 From the starting of my childhood, I had a profound interest in technology. I
 still remember it all started when I got my very first Android smartphone. At
-that time I was in 9th grade. I wanted to create my own website on the internet.
+that time, I was in 9th grade. I wanted to create my own website on the internet.
 Long story short, I created a blog on Blogger and named it Tricky-Tricks. I also
 purchased a `[dot]in` domain for it. I was very much inspired by Harsh Agarwal,
 Founder of ShoutMeLoud.
 
 ## School Life
 
-From the starting of my childhood, I had a profound interest in technology. I
-When I reached 10th grade, I got very fascinated by the hacking. At that time I
+From the starting of my childhood, I had a profound interest in technology. 
+When I reached 10th grade, I got very fascinated by the hacking. At that time, I
 didn't know the real meaning of hacking. I just thought that hacking means
 gaining access to someone's Facebook account or a website. I learned how to
 create a phishing page on [Wapka](https://www.wapka.site/). I also tried to gain
 root access on my android device. But during that time, it was not easy to root
-your device. There were no Magisk at that time. Due to lack of resources, I was
+your device. There was no Magisk at that time. Due to lack of resources, I was
 unable to root it.
 
-Things got changed when I got into 11th standard, I received a brand-new laptop
+Things got changed when I got into the 11th standard, I received a brand-new laptop
 as a scholarship from the school. It was an Acer machine with quite low
 specifications. I wanted to learn about android development. I came to know that
 android applications are developed in a special application known as Android
 Studio. I downloaded and installed it. As soon as I opened the application, my
 laptop got stuck. Also, I didn't have any idea of Java back then.
 
-However, I started learning Python from a great Udemy course which is still a
+However, I started learning Python from a great Udemy course, which is still a
 bestseller. The course was going very smooth, and I was enjoying the whole
 journey until the OOP section jumped in. I watched the video many times but was
 unable to understand / relate the meaning of the Classes.
 
-I was very clear about what stream to choose after completing 12th standard.
+I was very clear about what stream to choose after completing the 12th standard.
 Without any second thought, I got myself enrolled in the BTech program in
-Computer Science from Lovely Professional University. I scored very fewer marks
+Computer Science from the Lovely Professional University. I scored very fewer marks
 in JEE exam. So I didn't have many good options when it comes to universities.
 
 ## College Life
@@ -82,24 +82,24 @@ thing in the field of Software Engineering.
 
 At the end of the fourth semester, I started doing development also. I started
 my dev journey with Flutter. I really liked the concept of Flutter and how
-quickly we can build something with it. Build a couple of very simple apps with
+quickly we can build something with it. Built a couple of basic apps with
 it and created my account on Google Play Console where I published those apps.
-Me and my friends participated in the SIH hackathon where my job was to build
+I and my friends participated in the SIH hackathon where my job was to build
 the mobile app. We successfully qualified for the SIH hackathon from our
 university but did not make it to the next round.
 
-Fast-forward to the mid of fifth semester, the covid pandemic came. We all had
+Fast-forward to the mid of fifth semester, the covid-19 pandemic came. We all had
 to go home and continue our studies in an online manner. I always wanted to
 learn core Android. I'm very much interested in the Kotlin language. I think it
-is a very well polished language.
+is a very well-polished language.
 
-During the lockdown, I didn't had my laptop with me. It was in service center.
-So, I had to borrow the laptop from one of my friend. Her laptop was an Intel
+During the lockdown, I didn't have my laptop with me. It was in service center.
+So, I had to borrow the laptop from one of my friends. Her laptop was an Intel
 Core i3 machine with 4 GB RAM. It could not run Android Studio. So, I had to
 move towards any other technology. I choose to learn web development. I started
-from the HTML, CSS and JavaScript. Later, I started learning React.js. I was
+from HTML, CSS, and JavaScript. Later I started learning React.js. I was
 very much fascinated by the React.js. I still remember the first time I used
-ReactJS, it blew my mind like how it's component based architecture can solve
+ReactJS, it blew my mind like how its component-based architecture can solve
 all the issues that I was facing with raw HTML and CSS.
 
 // to be continued!

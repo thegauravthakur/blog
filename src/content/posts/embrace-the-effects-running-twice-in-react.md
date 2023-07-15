@@ -37,7 +37,7 @@ export default function App() {
 Due to this behavior, all the effects (`useEffect` and `useLayoutEffect`) will run twice. Running the above component
 in React 18 will display the below results
 
-![console output with effect called twice + `{"width":965,"height":506}`](/images/console-output-with-effect-called-twice.png 'console output with effect called twice')
+<img height="506" width="100%" alt="console output with effect being called twice" src="https://res.cloudinary.com/gauravthakur/image/upload/s--bLGtEsUw--/v1689436203/blog/console-output-with-effect-called-twice_wdhuxt.webp">
 
 In the beginning, it may seem like an odd behavior from React, but later in the post we will explore the reason behind
 it and why we should embrace it rather than consider it a bug.
@@ -46,12 +46,12 @@ So far, we have created a mental model that an empty dependency array will only 
 problem when we write effects in such a way that calling them twice with the same values breaks the application or causes
 a bug. With the help of Strict mode, the React team is trying to identify these issues early in development.
 
-In your mind you may think, "this is specific to stick mode, and if we opt out of stick mode then we don't need to worry
-about how effect reacts to multiple calls because empty dependencies will invoke effect only once". In fact,
+In your mind, you may think, "this is specific to stick mode, and if we opt out of stick mode, then we don't need to worry
+about how effect reacts to multiple calls because empty dependencies will invoke effect only once." In fact,
 this scenario is very likely to occur even if the strict mode is removed.
 
 Consider a scenario in which the user clicks on a link and then returns to the original screen immediately.
-In this case, the component will first mount, and then as the user navigates to another screen, it will unmount, and
+In this case, the component will first mount, and then, as the user navigates to another screen, it will unmount, and
 when the user returns to the original screen, it will mount again.
 
 ```javascript
@@ -75,7 +75,7 @@ function ChatScreen() {
 
 Here in the above example, we are connecting the user to the chat server as soon as `ChatScreen` component mounts.
 Without the Strict mode turned on, the effect will only run once and the user will only be connected to the server once.
-But, things can get messy if a user clicks on the "Get back to home page" link then immediately moves back to the
+But things can get messy if a user clicks on the "Get back to home page" link then immediately moves back to the
 original screen, mounting the `ChatScreen` component all over again. As a result, the two connections will be created
 for the same user, causing the bug later on or now depending on the logic.
 
@@ -108,6 +108,6 @@ component is mounted.
 ## Conclusion
 
 The React uses Strict mode to identify issues as early as possible during the development process, which involves
-running the effect twice. Instead of finding a workaround to solve these problems we should sit back and see why our
+running the effect twice. Instead of finding a workaround to solve these problems, we should sit back and see why our
 logic fails with multiple effect calls. It will help us to make our components future-proof and ensure that they are
 edge case free.

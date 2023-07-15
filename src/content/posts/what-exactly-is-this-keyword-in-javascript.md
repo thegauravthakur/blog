@@ -23,7 +23,7 @@ look at how the function is called. There are different ways by which we can ass
 ## Default Binding
 
 Default binding is applied whenever a function is invoked without using `call`, `bind`, and `apply` methods.
-Furthermore, no `new` keyword is used and there is no additional context provided. We will cover all these in later
+Furthermore, no `new` keyword is used and there is no additional context provided. We will cover all these in the later 
 part of the blog. In such scenario, default binding is applied and the `this` keyword will point to the
 global execution context.
 
@@ -50,10 +50,10 @@ In the above example, the value of `this` will be `undefined` as we are using st
 
 ## Explicit Binding
 
-JavaScript functions are special types of objects that can be invoked by using `()` after the object name. These
+JavaScript's functions are special types of objects that can be invoked by using `()` after the object name. These
 special objects contain some helper methods attached to them like `call`, `apply` and `bind` which allows us to
-explicitly bind `this` keyword to any specific value. While these methods are all aimed at bind the *this* keyword with
-a specific object, they all differ in a few ways. Let's discuss about each of them
+explicitly bind `this` keyword to any specific value. While these methods are all aimed to bind the `this` keyword with
+a specific object, they all differ in a few ways. Let's discuss each of them
 
 ### Call Method
 
@@ -78,7 +78,7 @@ foo.call({name: 'John'}, 21, 'Kullu' ); // John 21 Kullu
 ### Apply Method
 
 This method is similar to the `call` method; the only difference is the way arguments are provided to the function. In
-`apply` method arguments are provided as an array where as in `call` method arguments are provided comma separated
+`apply` method arguments are provided as an array whereas in `call` method arguments are provided comma separated
 
 ```javascript
 function foo(age, place) {
@@ -90,7 +90,7 @@ foo.apply({name: 'John'}, [21, 'Kullu'] ); // John 21 Kullu
 
 ### Bind Method
 
-The `Bind` method expects a value in the first parameter and it will return a new function whose `this` is bound to the
+The `Bind` method expects a value in the first parameter, and it will return a new function whose `this` is bound to the
 value given in first argument.
 
 ```javascript
@@ -170,4 +170,4 @@ the default binding. Also, one thing to note is that we can't use `new` operator
 4. In the case where a function is attached to an object, the `this` keyword will refer to the attached object.
 5. The `new` operator will create an empty object and bind the `this` to that newly created object.
 6. Explicit biding will always have precedence over the implicit binding.
-7. We can't use new operator along with the apply or call method
+7. We can't use new operator along with the `apply` or `call` method
