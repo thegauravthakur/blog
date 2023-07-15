@@ -74,7 +74,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const slug = params.slug
 	const filePath = path.join(process.cwd(), `src/content/posts/${slug}.md`)
 	const { data } = matter(fs.readFileSync(filePath, 'utf-8'))
-	console.log(data)
 	return {
 		title: data.title,
 		description: data.metaDescription,
