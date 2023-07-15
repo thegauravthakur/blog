@@ -19,7 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 	const currentTheme = cookieStore.get('theme')
 
 	return (
-		<html data-mode={currentTheme?.value} lang="en">
+		<html data-mode={currentTheme?.value ?? 'dark'} lang="en">
 			<body className={cn(inter.className, 'dark:bg-black')} id="app">
 				<Header />
 				{children}

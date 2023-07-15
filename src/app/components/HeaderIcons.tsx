@@ -5,7 +5,7 @@ import { MobileHeaderTriggerIcon } from '@/app/components/MobileHeaderTriggerIco
 import { SearchIcon } from '@/app/components/SearchIcon'
 
 export function HeaderIcons() {
-	const currentTheme = cookies().get('theme')?.value ?? 'light'
+	const currentTheme = cookies().get('theme')?.value ?? 'dark'
 	return (
 		<ul className={cn('flex space-x-2')}>
 			<li>

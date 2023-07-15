@@ -1,5 +1,6 @@
 import { cn } from '@/utils/tailwind'
 import Link from 'next/link'
+import { format } from 'date-fns'
 import { ArticleData } from '@/app/page'
 
 interface ArticleProps {
@@ -29,7 +30,7 @@ export function Article({ metadata }: ArticleProps) {
 					<p className={cn('text-sm leading-7')}>{metadata.description}</p>
 				</div>
 				<div className={cn('mt-auto flex justify-between text-sm')}>
-					<p>May 29th, 2023</p>
+					<p>{format(new Date(metadata.publishedDate), 'MMMM dd, yyyy')}</p>
 					<p>13 comments</p>
 				</div>
 			</Link>

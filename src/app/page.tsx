@@ -17,11 +17,14 @@ export interface ArticleData {
 export function getAllArticles(): ArticleData[] {
 	const folderPath = path.join(process.cwd(), 'src/content/posts')
 	const folder = fs.readdirSync(folderPath)
-	return folder.map(file => {
+	const articles = folder.map(file => {
 		const filePath = path.join(folderPath, file)
 		const fileContent = fs.readFileSync(filePath, 'utf8')
 		return { ...matter(fileContent).data, slug: file.replace('.md', '') }
 	}) as ArticleData[]
+	return articles.sort((a, b) => {
+		return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+	})
 }
 
 export default function Home() {
