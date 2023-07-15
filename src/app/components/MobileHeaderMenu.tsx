@@ -3,7 +3,7 @@
 import { cn } from '@/utils/tailwind'
 import { IconButton } from '@/components/shared/IconButton'
 import { Icon } from '@/components/shared/Icon'
-import ReactFocusLock, { AutoFocusInside } from 'react-focus-lock'
+import ReactFocusLock from 'react-focus-lock'
 import { useEffect } from 'react'
 import { Tooltip } from '@/components/shared/Tooltip'
 import { MobileNavItems } from '@/app/components/MobileNavItems'
@@ -36,18 +36,16 @@ export function MobileHeaderMenu(props: MobileHeaderMenuProps) {
 				>
 					<MobileNavItems />
 					<Tooltip id="close-mobile-menu-icon-tooltip" place="bottom-end" />
-					<AutoFocusInside>
-						<IconButton
-							aria-label="close menu"
-							className={cn('absolute right-6 top-6')}
-							data-tooltip-content="Close menu"
-							data-tooltip-id="close-mobile-menu-icon-tooltip"
-							type="button"
-							onClick={() => props.setShowMobileMenu(false)}
-						>
-							<Icon className={cn('h-6 w-6')} id="close-icon" />
-						</IconButton>
-					</AutoFocusInside>
+					<IconButton
+						aria-label="close menu"
+						className={cn('absolute right-6 top-6')}
+						data-tooltip-content="Close menu"
+						data-tooltip-id="close-mobile-menu-icon-tooltip"
+						type="button"
+						onClick={() => props.setShowMobileMenu(false)}
+					>
+						<Icon className={cn('h-6 w-6')} id="close-icon" />
+					</IconButton>
 				</div>
 			</ReactFocusLock>
 		</div>
