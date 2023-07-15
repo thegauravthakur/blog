@@ -4,6 +4,7 @@ import path from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { calculateReadingTime } from '@/utils/article'
+import { Metadata } from 'next'
 
 export interface ArticleData {
 	title: string
@@ -26,6 +27,12 @@ export function getAllArticles(): ArticleData[] {
 	return articles.sort((a, b) => {
 		return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
 	})
+}
+
+export const metadata: Metadata = {
+	title: "Gaurav's Blog",
+	description:
+		'Hi, welcome to the personal blog of Gaurav. I write about things I learn, things I find interesting and things I find useful.',
 }
 
 export default function Home() {

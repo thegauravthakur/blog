@@ -12,13 +12,13 @@ export function Footer() {
 			)}
 		>
 			<div className={cn('flex items-center justify-center')}>
-				<IconButton type="button">
+				<IconButton aria-label="twitter icon" type="button">
 					<Icon className={cn('h-6 w-6')} id="twitter-icon" />
 				</IconButton>
-				<IconButton type="button">
+				<IconButton aria-label="linkedin icon" type="button">
 					<Icon className={cn('h-6 w-6')} id="linkedin-icon" />
 				</IconButton>
-				<IconButton type="button">
+				<IconButton aria-label="email icon" type="button">
 					<Icon className={cn('h-6 w-6')} id="email-icon" />
 				</IconButton>
 			</div>

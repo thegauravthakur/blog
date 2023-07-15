@@ -7,13 +7,19 @@ import { Article } from '@/app/components/Article'
 import { getAllArticles } from '@/app/page'
 import { format } from 'date-fns'
 import { calculateReadingTime } from '@/utils/article'
+import { Metadata } from 'next'
 
 function getRandomArticles(max: number) {
 	return getAllArticles()
 		.sort(() => Math.random() - Math.random())
 		.slice(0, max)
 }
-export default function Page({ params }: any) {
+
+type Props = {
+	params: { slug: string }
+	searchParams: { [key: string]: string | string[] | undefined }
+}
+export default function Page({ params }: Props) {
 	const slug = params.slug
 	const readMoreArticles = getRandomArticles(2)
 
@@ -62,4 +68,15 @@ export default function Page({ params }: any) {
 			</div>
 		</div>
 	)
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const slug = params.slug
+	const filePath = path.join(process.cwd(), `src/content/posts/${slug}.md`)
+	const { data } = matter(fs.readFileSync(filePath, 'utf-8'))
+	console.log(data)
+	return {
+		title: data.title,
+		description: data.metaDescription,
+	}
 }
