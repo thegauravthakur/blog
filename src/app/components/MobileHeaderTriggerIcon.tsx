@@ -11,16 +11,17 @@ export function MobileHeaderTriggerIcon() {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
 	return (
 		<>
-			<Tooltip message="More Items">
-				<IconButton
-					aria-label="more items"
-					onClick={() => {
-						setShowMobileMenu(true)
-					}}
-				>
-					<Icon className={cn('h-6 w-6')} id="vertical-ellipsis-icon" />
-				</IconButton>
-			</Tooltip>
+			<Tooltip id="more-items-tooltip" />
+			<IconButton
+				aria-label="more items"
+				data-tooltip-content="More items"
+				data-tooltip-id="more-items-tooltip"
+				onClick={() => {
+					setShowMobileMenu(true)
+				}}
+			>
+				<Icon className={cn('h-6 w-6')} id="vertical-ellipsis-icon" />
+			</IconButton>
 			<MobileHeaderMenu
 				setShowMobileMenu={setShowMobileMenu}
 				showMobileMenu={showMobileMenu}

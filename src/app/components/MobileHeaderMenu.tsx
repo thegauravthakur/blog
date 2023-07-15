@@ -5,6 +5,7 @@ import { IconButton } from '@/components/shared/IconButton'
 import { Icon } from '@/components/shared/Icon'
 import ReactFocusLock from 'react-focus-lock'
 import { useEffect } from 'react'
+import { Tooltip } from '@/components/shared/Tooltip'
 
 interface MobileHeaderMenuProps {
 	showMobileMenu: boolean
@@ -35,7 +36,9 @@ export function MobileHeaderMenu(props: MobileHeaderMenuProps) {
 					<ul className={cn('text-sm font-semibold')}>
 						<li>
 							<a
-								className={cn('block rounded p-4 py-3 hover:bg-gray-200/20')}
+								className={cn(
+									'block rounded p-4 py-3 hover:bg-gray-200/50 dark:hover:bg-gray-200/20',
+								)}
 								href="#"
 							>
 								Home
@@ -43,7 +46,9 @@ export function MobileHeaderMenu(props: MobileHeaderMenuProps) {
 						</li>
 						<li>
 							<a
-								className={cn('block rounded p-4 py-3 hover:bg-gray-200/20')}
+								className={cn(
+									'block rounded p-4 py-3 hover:bg-gray-200/50 dark:hover:bg-gray-200/20',
+								)}
 								href="#"
 							>
 								About
@@ -51,16 +56,21 @@ export function MobileHeaderMenu(props: MobileHeaderMenuProps) {
 						</li>
 						<li>
 							<a
-								className={cn('block rounded p-4 py-3 hover:bg-gray-200/20')}
+								className={cn(
+									'block rounded p-4 py-3 hover:bg-gray-200/50 dark:hover:bg-gray-200/20',
+								)}
 								href="#"
 							>
 								Thoughts
 							</a>
 						</li>
 					</ul>
+					<Tooltip id="close-mobile-menu-icon-tooltip" place="bottom-end" />
 					<IconButton
 						aria-label="close menu"
 						className={cn('absolute right-6 top-6')}
+						data-tooltip-content="Close menu"
+						data-tooltip-id="close-mobile-menu-icon-tooltip"
 						type="button"
 						onClick={() => props.setShowMobileMenu(false)}
 					>

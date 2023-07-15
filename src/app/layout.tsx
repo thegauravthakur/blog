@@ -20,7 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
 	return (
 		<html data-mode={currentTheme?.value} lang="en">
-			<body className={cn(inter.className, 'dark:bg-black')}>
+			<body className={cn(inter.className, 'dark:bg-black')} id="app">
 				<Header />
 				{children}
 				<footer

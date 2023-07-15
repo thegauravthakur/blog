@@ -6,4 +6,9 @@
     .article:hover h2, .article:focus-within h2 {
         @apply dark:text-blue-500 text-red-600 transition-colors duration-300;
     }
+
+    #app .tooltip-wrapper {
+        @apply bg-white text-black border text-sm dark:border-dark dark:bg-black dark:text-white;
+    }
+
 }

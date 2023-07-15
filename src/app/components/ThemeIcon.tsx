@@ -3,8 +3,8 @@
 import { IconButton } from '@/components/shared/IconButton'
 import { Icon } from '@/components/shared/Icon'
 import { cn } from '@/utils/tailwind'
-import { Tooltip } from '@/components/shared/Tooltip'
 import { useState } from 'react'
+import { Tooltip } from 'react-tooltip'
 
 interface ThemeIconProps {
 	currentTheme: string
@@ -13,11 +13,12 @@ export function ThemeIcon({ currentTheme }: ThemeIconProps) {
 	const [theme, setTheme] = useState(currentTheme)
 
 	return (
-		<Tooltip message="Light mode">
+		<>
 			<IconButton
 				aria-label="change to light mode"
+				data-tooltip-content={`Change to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+				data-tooltip-id="theme-tooltip"
 				onClick={event => {
-					event.currentTarget.blur()
 					if (document.documentElement.dataset.mode === 'dark') {
 						document.documentElement.dataset.mode = 'light'
 						document.cookie = 'theme=light; ; path=/'
@@ -34,6 +35,7 @@ export function ThemeIcon({ currentTheme }: ThemeIconProps) {
 					id={theme === 'dark' ? 'light-theme-icon' : 'moon-icon'}
 				/>
 			</IconButton>
-		</Tooltip>
+			<Tooltip noArrow className="tooltip-wrapper" id="theme-tooltip" />
+		</>
 	)
 }

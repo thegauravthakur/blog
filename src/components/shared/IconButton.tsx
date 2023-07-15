@@ -10,7 +10,8 @@ export function IconButton(
 			{...props}
 			className={cn(
 				props.className,
-				'rounded-full p-2 transition-colors duration-200 hover:bg-gray-200/20',
+				'rounded-full p-2 transition-colors duration-200',
+				'hover:bg-gray-200/50 dark:hover:bg-gray-200/20',
 			)}
 		/>
 	)
@@ -20,7 +21,10 @@ export function IconAnchorButton(props: ComponentProps<typeof Link>) {
 	return (
 		<Link
 			{...props}
-			className={cn('rounded-full p-2 transition-colors duration-200 hover:bg-gray-200/20')}
+			className={cn(
+				'rounded-full p-2 transition-colors duration-200',
+				'hover:bg-gray-200/50 dark:hover:bg-gray-200/20',
+			)}
 		/>
 	)
 }
