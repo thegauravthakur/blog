@@ -5,12 +5,15 @@ import path from 'path'
 import matter from 'gray-matter'
 import { Article } from '@/app/components/Article'
 import { getAllArticles } from '@/app/page'
+import { format } from 'date-fns'
+import { calculateReadingTime } from '@/utils/article'
 
 export default function Page({ params }: any) {
 	const slug = params.slug
 	const readMoreArticles = getAllArticles().slice(0, 2)
 	const filePath = path.join(process.cwd(), `src/content/posts/${slug}.md`)
 	const { content, data } = matter(fs.readFileSync(filePath, 'utf-8'))
+	const readingTime = calculateReadingTime(content)
 	const htmlString = marked.parse(content)
 
 	return (
@@ -26,7 +29,16 @@ export default function Page({ params }: any) {
 				)}
 			>
 				<h1 className={cn('text-center')}>{data.title}</h1>
-				<div className={cn('my-20')}></div>
+				<div
+					className={cn(
+						'my-10 flex justify-around border-y py-3 text-sm font-semibold dark:border-dark',
+					)}
+				>
+					<p className={cn('m-0')}>
+						{format(new Date(data.publishedDate), 'MMMM dd, yyyy')}
+					</p>
+					<p className={cn('m-0')}>{readingTime} minutes read</p>
+				</div>
 				<div dangerouslySetInnerHTML={{ __html: htmlString }} />
 			</main>
 			<div

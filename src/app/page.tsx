@@ -3,6 +3,7 @@ import { Article } from '@/app/components/Article'
 import path from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
+import { calculateReadingTime } from '@/utils/article'
 
 export interface ArticleData {
 	title: string
