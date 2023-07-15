@@ -1,6 +1,5 @@
 import { cn } from '@/utils/tailwind'
 import { HeaderIcons } from '@/app/components/HeaderIcons'
-import { MobileHeaderMenu } from '@/app/components/MobileHeaderMenu'
 import Link from 'next/link'
 
 export function Header() {
@@ -14,7 +13,7 @@ export function Header() {
 			>
 				<Link
 					className={cn(
-						'transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
+						'font-bold transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
 					)}
 					href="/"
 				>
@@ -56,7 +55,6 @@ export function Header() {
 					<HeaderIcons />
 				</ul>
 			</div>
-			<MobileHeaderMenu />
 		</header>
 	)
 }
