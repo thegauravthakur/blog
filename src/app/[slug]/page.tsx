@@ -18,6 +18,8 @@ export default function Page({ params }: any) {
 			<main
 				className={cn(
 					'prose mt-20 dark:prose-invert',
+					'prose-pre:border prose-pre:bg-white dark:prose-pre:border-dark dark:prose-pre:bg-black',
+					'prose-pre:text-gray-800 dark:prose-pre:text-gray-300',
 					'max-w-none prose-img:rounded-lg',
 					'px-5 py-20 md:px-10',
 					'rounded-xl border dark:border-dark',
