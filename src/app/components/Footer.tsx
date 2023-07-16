@@ -1,6 +1,8 @@
 import { cn } from '@/utils/tailwind'
-import { IconAnchorButton, IconButton } from '@/components/shared/IconButton'
+import { IconAnchorButton } from '@/components/shared/IconButton'
 import { Icon } from '@/components/shared/Icon'
+import Link from 'next/link'
+import { getYear } from 'date-fns'
 
 export function Footer() {
 	return (
@@ -35,8 +37,10 @@ export function Footer() {
 				</IconAnchorButton>
 			</div>
 			<p className={cn('flex items-center justify-center space-x-1 text-sm')}>
-				<span>2023 Copyright:</span>
-				<span className={cn('font-bold')}>Gaurav Thakur </span>
+				<span>{getYear(new Date())} Copyright:</span>
+				<Link className={cn('font-bold')} href="https://gauravthakur.in" target="_blank">
+					Gaurav Thakur
+				</Link>
 				<span>| Made with </span>
 				<Icon className={cn('mx-1 inline-block h-5 w-5')} id="heart-icon" />
 				<span>in India</span>

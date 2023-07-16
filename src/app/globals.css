@@ -8,7 +8,7 @@
     }
 
     #app .tooltip-wrapper {
-        @apply bg-white text-black border text-sm dark:border-dark dark:bg-black dark:text-white;
+        @apply bg-white text-black border text-xs dark:border-dark dark:bg-black dark:text-white;
     }
 
 }
