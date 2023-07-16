@@ -15,6 +15,7 @@ export function Header() {
 				<Link
 					className={cn(
 						'font-bold transition-colors duration-200 hover:text-red-600 dark:hover:text-blue-500',
+						'outline-1 outline-offset-4 outline-red-600',
 					)}
 					href="/"
 				>
