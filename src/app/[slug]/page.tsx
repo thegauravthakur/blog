@@ -8,6 +8,7 @@ import { getAllArticles } from '@/app/page'
 import { format } from 'date-fns'
 import { calculateReadingTime } from '@/utils/article'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 function getRandomArticles(max: number) {
 	return getAllArticles()
@@ -22,8 +23,8 @@ type Props = {
 export default function Page({ params }: Props) {
 	const slug = params.slug
 	const readMoreArticles = getRandomArticles(2)
-
 	const filePath = path.join(process.cwd(), `src/content/posts/${slug}.md`)
+	if (!fs.existsSync(filePath)) notFound()
 	const { content, data } = matter(fs.readFileSync(filePath, 'utf-8'))
 	const readingTime = calculateReadingTime(content)
 	const htmlString = marked.parse(content)
@@ -43,7 +44,7 @@ export default function Page({ params }: Props) {
 				<h1 className={cn('text-center')}>{data.title}</h1>
 				<div
 					className={cn(
-						'my-10 flex justify-around border-y py-3 text-sm font-semibold dark:border-dark',
+						'mb-14 mt-10 flex justify-around border-y py-3 text-sm font-semibold dark:border-dark',
 					)}
 				>
 					<p className={cn('m-0')}>
@@ -73,6 +74,8 @@ export default function Page({ params }: Props) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const slug = params.slug
 	const filePath = path.join(process.cwd(), `src/content/posts/${slug}.md`)
+	if (!fs.existsSync(filePath)) notFound()
+
 	const { data } = matter(fs.readFileSync(filePath, 'utf-8'))
 	return {
 		title: data.title,

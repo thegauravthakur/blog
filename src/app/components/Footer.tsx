@@ -1,5 +1,5 @@
 import { cn } from '@/utils/tailwind'
-import { IconButton } from '@/components/shared/IconButton'
+import { IconAnchorButton, IconButton } from '@/components/shared/IconButton'
 import { Icon } from '@/components/shared/Icon'
 
 export function Footer() {
@@ -12,15 +12,27 @@ export function Footer() {
 			)}
 		>
 			<div className={cn('flex items-center justify-center')}>
-				<IconButton aria-label="twitter icon" type="button">
+				<IconAnchorButton
+					aria-label="twitter social"
+					href="https://gauravthakur.in/social/twitter"
+					target="_blank"
+				>
 					<Icon className={cn('h-6 w-6')} id="twitter-icon" />
-				</IconButton>
-				<IconButton aria-label="linkedin icon" type="button">
+				</IconAnchorButton>
+				<IconAnchorButton
+					aria-label="linkedin social"
+					href="https://gauravthakur.in/social/linkedin"
+					target="_blank"
+				>
 					<Icon className={cn('h-6 w-6')} id="linkedin-icon" />
-				</IconButton>
-				<IconButton aria-label="email icon" type="button">
+				</IconAnchorButton>
+				<IconAnchorButton
+					aria-label="email social"
+					href="https://gauravthakur.in/social/email"
+					target="_blank"
+				>
 					<Icon className={cn('h-6 w-6')} id="email-icon" />
-				</IconButton>
+				</IconAnchorButton>
 			</div>
 			<p className={cn('flex items-center justify-center space-x-1 text-sm')}>
 				<span>2023 Copyright:</span>
