@@ -27,7 +27,7 @@ export function MobileHeaderMenu(props: MobileHeaderMenuProps) {
 
 	return (
 		<div className={cn('absolute inset-0 backdrop-blur-sm')}>
-			<ReactFocusLock>
+			<ReactFocusLock returnFocus>
 				<div
 					className={cn(
 						'fixed inset-x-4 top-4 rounded-lg  p-6',

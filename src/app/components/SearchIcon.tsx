@@ -10,7 +10,7 @@ export function SearchIcon() {
 		<>
 			<Tooltip id="search-tooltip" />
 			<IconButton
-				aria-label="search"
+				aria-label="search posts"
 				content="search"
 				data-tooltip-content="Search"
 				data-tooltip-id="search-tooltip"

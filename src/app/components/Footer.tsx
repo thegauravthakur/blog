@@ -38,7 +38,13 @@ export function Footer() {
 			</div>
 			<p className={cn('flex items-center justify-center space-x-1 text-sm')}>
 				<span>{getYear(new Date())} Copyright:</span>
-				<Link className={cn('font-bold')} href="https://gauravthakur.in" target="_blank">
+				<Link
+					className={cn(
+						'font-bold outline-2 outline-red-600 focus-visible:outline dark:outline-blue-500',
+					)}
+					href="https://gauravthakur.in"
+					target="_blank"
+				>
 					Gaurav Thakur
 				</Link>
 				<span>| Made with </span>

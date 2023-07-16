@@ -24,7 +24,8 @@ export function IconAnchorButton(props: ComponentProps<typeof Link>) {
 			{...props}
 			className={cn(
 				'rounded-full p-2 transition-colors duration-200',
-				'hover:bg-gray-200/50 dark:hover:bg-gray-200/20',
+				'hover:bg-gray-200/50 focus:bg-gray-200/50 dark:hover:bg-gray-200/20 dark:hover:focus:bg-gray-200/20',
+				'focus:outline-none',
 			)}
 		/>
 	)
