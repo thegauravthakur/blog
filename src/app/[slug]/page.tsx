@@ -44,7 +44,7 @@ export default function Page({ params }: Props) {
 				<h1 className={cn('text-center')}>{data.title}</h1>
 				<div
 					className={cn(
-						'mb-14 mt-10 flex justify-around border-y py-3 text-sm font-semibold dark:border-dark',
+						'my-10 flex justify-around border-y py-3 text-sm font-semibold dark:border-dark',
 					)}
 				>
 					<p className={cn('m-0')}>
