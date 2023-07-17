@@ -26,7 +26,14 @@ export function MobileHeaderMenu(props: MobileHeaderMenuProps) {
 	if (!props.showMobileMenu) return null
 
 	return (
-		<div className={cn('absolute inset-0 backdrop-blur-sm')}>
+		<div
+			className={cn('absolute inset-0 backdrop-blur-sm')}
+			onKeyDown={event => {
+				if (event.key === 'Escape') {
+					props.setShowMobileMenu(false)
+				}
+			}}
+		>
 			<ReactFocusLock returnFocus>
 				<div
 					className={cn(
