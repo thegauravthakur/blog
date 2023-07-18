@@ -9,6 +9,11 @@ import { format } from 'date-fns'
 import { calculateReadingTime } from '@/utils/article'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { markedHighlight } from 'marked-highlight'
+import hljs from 'highlight.js'
+import '../styles/syntax-highlight.css'
+import { mangle } from 'marked-mangle'
+import { gfmHeadingId } from 'marked-gfm-heading-id'
 
 function getRandomArticles(max: number) {
 	return getAllArticles()
@@ -20,6 +25,19 @@ type Props = {
 	params: { slug: string }
 	searchParams: { [key: string]: string | string[] | undefined }
 }
+
+marked.use(
+	markedHighlight({
+		langPrefix: 'language-',
+		highlight(code, lang) {
+			const language = hljs.getLanguage(lang) ? lang : 'plaintext'
+			return hljs.highlight(code, { language }).value
+		},
+	}),
+	mangle(),
+	gfmHeadingId(),
+)
+
 export default function Page({ params }: Props) {
 	const slug = params.slug
 	const readMoreArticles = getRandomArticles(2)
