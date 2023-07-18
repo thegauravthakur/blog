@@ -36,6 +36,19 @@ marked.use(
 	}),
 	mangle(),
 	gfmHeadingId(),
+	{
+		renderer: {
+			heading(
+				text: string,
+				level: 1 | 2 | 3 | 4 | 5 | 6,
+				raw: string,
+				slugger: marked.Slugger,
+			): string {
+				const id = slugger.slug(raw)
+				return `<h${level} id="${id}" class="heading">${text} <a title="Link for ${text}" aria-label="Link for ${text}" href="#${id}" class="anchor hidden ml-1"><svg class='h-5 w-5'><use href='/sprite.svg#link-icon'/></svg></a></h${level}>`
+			},
+		},
+	},
 )
 
 export default function Page({ params }: Props) {

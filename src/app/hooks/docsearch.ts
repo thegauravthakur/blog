@@ -37,6 +37,11 @@ export function useDocSearchKeyboardEvents({
 				event.preventDefault()
 				if (isOpen) {
 					onClose()
+					// move focus back to the search button
+					const searchButton = document.querySelector(
+						'[data-tooltip-id="search-tooltip"]',
+					) as HTMLButtonElement
+					searchButton?.focus()
 				} else if (!document.body.classList.contains('DocSearch--active')) {
 					open()
 				}

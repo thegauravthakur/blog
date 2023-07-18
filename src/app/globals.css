@@ -11,4 +11,7 @@
         @apply bg-white text-black border text-xs dark:border-dark dark:bg-black dark:text-white;
     }
 
+    .heading:hover .anchor, .heading:focus-within .anchor {
+        @apply inline-block
+    }
 }
