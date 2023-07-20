@@ -56,7 +56,9 @@ it will check if the variable or function has been allocated in the memory. If
 so it will return the value of the key which is `undefined` in case of variables
 and function code in case of functions.
 
-If a variable is not defined, and we try to access it, it will throw a
+If memory for a variable is not provided, i.e.,
+the variable is not present in the memory component of the execution context,
+and we try to access it, it will throw a
 `ReferenceError` because the memory is not allocated for the variable in 
 phase 1 of the execution context.
 
