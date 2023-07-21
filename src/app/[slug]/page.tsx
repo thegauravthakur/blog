@@ -45,7 +45,15 @@ marked.use(
 				slugger: marked.Slugger,
 			): string {
 				const id = slugger.slug(raw)
-				return `<h${level} id="${id}" class="heading">${text} <a title="Link for ${text}" aria-label="Link for ${text}" href="#${id}" class="anchor hidden ml-1"><svg class='h-5 w-5'><use href='/sprite.svg#link-icon'/></svg></a></h${level}>`
+				return `
+					  <h${level} id="${id}" class="heading">${text} 
+					  <a title="Link for ${text}" aria-label="Link for ${text}" href="#${id}" class="inline-block ml-1 outline-red-600 focus-visible:outline dark:outline-blue-500 outline-2">
+						 <svg class='h-4 w-4'>
+							  <use class="hidden anchor" href='/sprite.svg#link-icon'/>
+						 </svg>
+					  </a>
+					  </h${level}>
+					`
 			},
 		},
 	},
