@@ -31,7 +31,7 @@ export function Article({ metadata }: ArticleProps) {
 				</div>
 				<div className={cn('mt-auto flex justify-between text-sm')}>
 					<p>{format(new Date(metadata.publishedDate), 'MMMM dd, yyyy')}</p>
-					<p>13 comments</p>
+					<p>{metadata.readingTime} minutes read</p>
 				</div>
 			</Link>
 		</article>

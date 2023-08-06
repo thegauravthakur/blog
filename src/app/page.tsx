@@ -12,6 +12,7 @@ export interface ArticleData {
 	author: string
 	description: string
 	metaDescription: string
+	readingTime: number
 	tags: string
 	slug: string
 }
@@ -22,7 +23,9 @@ export function getAllArticles(): ArticleData[] {
 	const articles = folder.map(file => {
 		const filePath = path.join(folderPath, file)
 		const fileContent = fs.readFileSync(filePath, 'utf8')
-		return { ...matter(fileContent).data, slug: file.replace('.md', '') }
+		const { data, content } = matter(fileContent)
+		const readingTime = calculateReadingTime(content)
+		return { ...data, readingTime, slug: file.replace('.md', '') }
 	}) as ArticleData[]
 	return articles.sort((a, b) => {
 		return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
