@@ -3,7 +3,7 @@
 import { IconButton } from '@/components/shared/IconButton'
 import { Icon } from '@/components/shared/Icon'
 import { cn } from '@/utils/tailwind'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Tooltip } from 'react-tooltip'
 
 interface ThemeIconProps {
@@ -11,6 +11,23 @@ interface ThemeIconProps {
 }
 export function ThemeIcon({ currentTheme }: ThemeIconProps) {
 	const [theme, setTheme] = useState(currentTheme)
+
+	/**
+	 * This will make sure to update the theme when the user changes his system theme preference
+	 */
+	useEffect(() => {
+		function onThemeChange(event: MediaQueryListEvent) {
+			const newColorScheme = event.matches ? 'dark' : 'light'
+			document.documentElement.dataset.mode = newColorScheme
+			document.cookie = `theme=${newColorScheme}; ; path=/`
+			setTheme(newColorScheme)
+		}
+		const mql = window.matchMedia('(prefers-color-scheme: dark)')
+		mql.addEventListener('change', onThemeChange)
+		return () => {
+			mql.removeEventListener('change', onThemeChange)
+		}
+	}, [])
 
 	return (
 		<>
